@@ -9,7 +9,7 @@
     "filter",
     "query"
   ],
-  "version": "0.0.4",
+  "version": "0.1.0",
   "files": [
     "dist"
   ],
@@ -18,7 +18,7 @@
     "url": "https://github.com/ampgroep/vuetify-query-builder"
   },
   "publishConfig": {
-    "ampgroep:registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "main": "./dist/query-builder.umd.js",
   "module": "./dist/query-builder.mjs",
