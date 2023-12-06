@@ -1,5 +1,5 @@
 {
-  "name": "vuetify-query-builder",
+  "name": "@ampgroep/vuetify-query-builder",
   "author": "Igor Buriakov - AMP Groep",
   "keywords": [
     "vue",
@@ -16,6 +16,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ampgroep/vuetify-query-builder"
+  },
+  "publishConfig": {
+    "ampgroep:registry": "https://npm.pkg.github.com"
   },
   "main": "./dist/query-builder.umd.js",
   "module": "./dist/query-builder.mjs",
