@@ -12,9 +12,10 @@ and used inside a vue component:
 </template>
 
 <script>
-  import QueryBuilder from "@ampgroep/vuetify-query-builder"
+  import QueryBuilder from '@ampgroep/vuetify-query-builder'
+  import '@ampgroep/vuetify-query-builder/dist/style.css'
   export default {
-     components: {QueryBuilder},
+     components: { QueryBuilder },
      data() {
        return {
            filter: {},

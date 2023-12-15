@@ -9,13 +9,8 @@
     "filter",
     "query"
   ],
-  "version": "0.3.0",
-  "files": [
-    "dist",
-    "lib",
-    "src",
-    "public"
-  ],
+  "version": "0.4.0",
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "https://github.com/ampgroep/vuetify-query-builder"
@@ -30,7 +25,8 @@
     ".": {
       "import": "./dist/query-builder.mjs",
       "require": "./dist/query-builder.umd.js"
-    }
+    },
+    "./*": "./*"
   },
   "scripts": {
     "dev": "vue-tsc && vite",

@@ -7094,7 +7094,8 @@ function vs(e, t, n, l, a, i) {
         "hide-details": "",
         modelValue: i.value,
         "onUpdate:modelValue": t[2] || (t[2] = (o) => i.value = o),
-        clearable: ""
+        clearable: "",
+        style: { "min-width": "200px" }
       }, null, 8, ["modelValue"])) : i.showCombobox() ? (ue(), Ht(ss, {
         key: 1,
         items: i.value,

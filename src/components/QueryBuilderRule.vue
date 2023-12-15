@@ -40,6 +40,7 @@
         hide-details
         v-model="value"
         clearable
+        style="min-width: 200px"
       ></v-text-field>
       <v-combobox
         v-else-if="showCombobox()"
@@ -187,8 +188,5 @@ export default {
   flex-grow: 1;
   margin-left: -40px;
   padding: 10px 20px 10px 40px;
-}
-.rule-hover:hover {
-  background: #f5f5f5;
 }
 </style>
