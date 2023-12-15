@@ -1,7 +1,7 @@
 var yi = Object.defineProperty;
 var hi = (e, t, n) => t in e ? yi(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var Rt = (e, t, n) => (hi(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { Fragment as J, reactive as on, computed as m, watchEffect as De, toRefs as zl, capitalize as Hl, isVNode as bi, Comment as Ci, warn as rn, ref as N, unref as Ve, provide as _e, inject as ce, shallowRef as W, defineComponent as Fn, camelize as jl, h as sn, getCurrentInstance as Si, TransitionGroup as pi, Transition as Xe, createVNode as u, mergeProps as U, isRef as Vt, toRef as H, Text as xi, watch as G, onBeforeMount as ql, nextTick as me, withDirectives as ke, resolveDirective as Qe, vShow as ut, onScopeDispose as ge, effectScope as Mn, toRaw as Ne, onBeforeUnmount as Je, onMounted as ct, resolveDynamicComponent as wi, readonly as Rn, Teleport as Vi, cloneVNode as ki, createTextVNode as bt, openBlock as ue, createElementBlock as we, normalizeStyle as _i, createElementVNode as ye, createBlock as Ht, withCtx as Me, toDisplayString as gn, createCommentVNode as at, resolveComponent as tl, renderList as nl } from "vue";
+import { Fragment as J, reactive as on, computed as m, watchEffect as De, toRefs as zl, capitalize as Hl, isVNode as bi, Comment as Ci, warn as rn, ref as N, unref as Ve, provide as _e, inject as ce, shallowRef as W, defineComponent as Fn, camelize as jl, h as sn, getCurrentInstance as Si, TransitionGroup as pi, Transition as Xe, createVNode as u, mergeProps as U, isRef as Vt, toRef as H, Text as xi, watch as G, onBeforeMount as ql, nextTick as ge, withDirectives as ke, resolveDirective as Qe, vShow as ut, onScopeDispose as ye, effectScope as Mn, toRaw as Ne, onBeforeUnmount as Je, onMounted as ct, resolveDynamicComponent as wi, readonly as Rn, Teleport as Vi, cloneVNode as ki, createTextVNode as bt, openBlock as ue, createElementBlock as we, normalizeStyle as _i, createElementVNode as me, createBlock as Ht, withCtx as Me, toDisplayString as gn, createCommentVNode as at, resolveComponent as tl, renderList as nl } from "vue";
 const Ii = {
   name: "QueryBuilderRule",
   components: {},
@@ -1520,7 +1520,7 @@ const ho = {
           const x = new Image();
           x.src = d.value.lazySrc, C(x, null);
         }
-        d.value.src && me(() => {
+        d.value.src && ge(() => {
           var x, L;
           if (n("loadstart", ((x = i.value) == null ? void 0 : x.currentSrc) || d.value.src), (L = i.value) != null && L.complete) {
             if (i.value.naturalWidth || v(), o.value === "error")
@@ -1792,7 +1792,7 @@ function Ze(e, t) {
     a && !n ? l() : a || (n == null || n.stop(), n = void 0);
   }, {
     immediate: !0
-  }), ge(() => {
+  }), ye(() => {
     n == null || n.stop();
   });
 }
@@ -2145,13 +2145,13 @@ const Kn = A({
 let Cn = !1;
 function Po(e, t) {
   let n = !1, l, a;
-  Ce && (me(() => {
+  Ce && (ge(() => {
     window.addEventListener("popstate", i), l = e == null ? void 0 : e.beforeEach((o, r, s) => {
       Cn ? n ? t(s) : s() : setTimeout(() => n ? t(s) : s()), Cn = !0;
     }), a = e == null ? void 0 : e.afterEach(() => {
       Cn = !1;
     });
-  }), ge(() => {
+  }), ye(() => {
     window.removeEventListener("popstate", i), l == null || l(), a == null || a();
   }));
   function i(o) {
@@ -2620,7 +2620,7 @@ q()({
         r.forEach((s) => s());
       },
       onForceUpdate: (s) => {
-        r.add(s), ge(() => {
+        r.add(s), ye(() => {
           r.delete(s);
         });
       }
@@ -2732,7 +2732,7 @@ const Il = q()({
       y.value = !1, C.value = !1;
     }
     function I(E) {
-      e.readonly && a && me(() => a.forceUpdate()), r.value = E.target.checked;
+      e.readonly && a && ge(() => a.forceUpdate()), r.value = E.target.checked;
     }
     return X(() => {
       var x, L;
@@ -3018,7 +3018,7 @@ function jo(e) {
     i == null || i.update(C.value, v.value, f.value);
   });
   function S() {
-    l.value = null, me(w);
+    l.value = null, ge(w);
   }
   function w() {
     r.value = !0, c.value.lazy ? o.value = [] : b(!0);
@@ -4340,12 +4340,12 @@ function gr(e, t) {
   const n = N({}), l = N();
   Ce && (Ze(() => !!(t.isActive.value && e.locationStrategy), (i) => {
     var o, r;
-    G(() => e.locationStrategy, i), ge(() => {
+    G(() => e.locationStrategy, i), ye(() => {
       l.value = void 0;
     }), typeof e.locationStrategy == "function" ? l.value = (o = e.locationStrategy(t, e, n)) == null ? void 0 : o.updateLocation : l.value = (r = Ya[e.locationStrategy](t, e, n)) == null ? void 0 : r.updateLocation;
   }), window.addEventListener("resize", a, {
     passive: !0
-  }), ge(() => {
+  }), ye(() => {
     window.removeEventListener("resize", a), l.value = void 0;
   }));
   function a(i) {
@@ -4403,7 +4403,7 @@ function br(e, t, n) {
     w && c.unobserve(w), C && c.observe(C), b && c.unobserve(b), S && c.observe(S);
   }, {
     immediate: !0
-  }), ge(() => {
+  }), ye(() => {
     c.disconnect();
   });
   function v() {
@@ -4537,7 +4537,7 @@ function br(e, t, n) {
       contentBox: y
     };
   }
-  return G(() => [a.value, i.value, t.offset, t.minWidth, t.minHeight, t.maxWidth, t.maxHeight], () => v()), me(() => {
+  return G(() => [a.value, i.value, t.offset, t.minWidth, t.minHeight, t.maxWidth, t.maxHeight], () => v()), ge(() => {
     const h = v();
     if (!h)
       return;
@@ -4589,11 +4589,11 @@ function pr(e, t) {
     return;
   let n;
   De(async () => {
-    n == null || n.stop(), t.isActive.value && e.scrollStrategy && (n = Mn(), await me(), n.active && n.run(() => {
+    n == null || n.stop(), t.isActive.value && e.scrollStrategy && (n = Mn(), await ge(), n.active && n.run(() => {
       var l;
       typeof e.scrollStrategy == "function" ? e.scrollStrategy(t, e, n) : (l = Wt[e.scrollStrategy]) == null || l.call(Wt, t, e, n);
     }));
-  }), ge(() => {
+  }), ye(() => {
     n == null || n.stop();
   });
 }
@@ -4608,7 +4608,7 @@ function wr(e, t) {
   const n = (o = e.root.value) == null ? void 0 : o.offsetParent, l = [.../* @__PURE__ */ new Set([...en(e.activatorEl.value, t.contained ? n : void 0), ...en(e.contentEl.value, t.contained ? n : void 0)])].filter((r) => !r.classList.contains("v-overlay-scroll-blocked")), a = window.innerWidth - document.documentElement.offsetWidth, i = ((r) => Gn(r) && r)(n || document.documentElement);
   i && e.root.value.classList.add("v-overlay--scroll-blocked"), l.forEach((r, s) => {
     r.style.setProperty("--v-body-scroll-x", j(-r.scrollLeft)), r.style.setProperty("--v-body-scroll-y", j(-r.scrollTop)), r !== document.documentElement && r.style.setProperty("--v-scrollbar-offset", j(a)), r.classList.add("v-overlay-scroll-blocked");
-  }), ge(() => {
+  }), ye(() => {
     l.forEach((r, s) => {
       const d = parseFloat(r.style.getPropertyValue("--v-body-scroll-x")), g = parseFloat(r.style.getPropertyValue("--v-body-scroll-y"));
       r.style.removeProperty("--v-body-scroll-x"), r.style.removeProperty("--v-body-scroll-y"), r.style.removeProperty("--v-scrollbar-offset"), r.classList.remove("v-overlay-scroll-blocked"), r.scrollLeft = -d, r.scrollTop = -g;
@@ -4634,7 +4634,7 @@ function Vr(e, t, n) {
         })) : o(r);
       });
     });
-  }), ge(() => {
+  }), ye(() => {
     typeof cancelIdleCallback < "u" && cancelIdleCallback(i), cancelAnimationFrame(a);
   });
 }
@@ -4644,7 +4644,7 @@ function Xa(e, t) {
     l.addEventListener("scroll", t, {
       passive: !0
     });
-  }), ge(() => {
+  }), ye(() => {
     n.forEach((l) => {
       l.removeEventListener("scroll", t);
     });
@@ -4751,7 +4751,7 @@ function Pr(e, t) {
   });
   const C = N();
   De(() => {
-    C.value && me(() => {
+    C.value && ge(() => {
       a.value = kn(C.value);
     });
   });
@@ -4767,7 +4767,7 @@ function Pr(e, t) {
   }, {
     flush: "post",
     immediate: !0
-  }), ge(() => {
+  }), ye(() => {
     w == null || w.stop();
   }), {
     activatorEl: a,
@@ -4787,12 +4787,12 @@ function Ar(e, t, n) {
       const g = r(d);
       g && o(g);
     }
-    s && me(() => i());
+    s && ge(() => i());
   }, {
     immediate: !0
   }), G(() => e.activatorProps, () => {
     i();
-  }), ge(() => {
+  }), ye(() => {
     o();
   });
   function i() {
@@ -4871,7 +4871,7 @@ function Tr(e, t, n) {
   Ze(e, () => {
     var f;
     const g = (f = gt.at(-1)) == null ? void 0 : f[1];
-    r.value = g ? g + 10 : +t.value, a && gt.push([l.uid, r.value]), i == null || i.activeChildren.add(l.uid), ge(() => {
+    r.value = g ? g + 10 : +t.value, a && gt.push([l.uid, r.value]), i == null || i.activeChildren.add(l.uid), ye(() => {
       if (a) {
         const c = Ne(gt).findIndex((v) => v[0] === l.uid);
         gt.splice(c, 1);
@@ -5303,7 +5303,7 @@ const Nr = A({
     async function g(y) {
       var w, b, I;
       const C = y.relatedTarget, S = y.target;
-      await me(), l.value && C !== S && ((w = r.value) != null && w.contentEl) && // We're the topmost menu
+      await ge(), l.value && C !== S && ((w = r.value) != null && w.contentEl) && // We're the topmost menu
       ((b = r.value) != null && b.globalTop) && // It isn't the document or the menu body
       ![document, r.value.contentEl].includes(S) && // It isn't inside the menu body
       !r.value.contentEl.contains(S) && ((I = _n(r.value.contentEl)[0]) == null || I.focus());
@@ -5945,7 +5945,7 @@ const Yr = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       S(), l("click:control", V);
     }
     function I(V) {
-      V.stopPropagation(), S(), me(() => {
+      V.stopPropagation(), S(), ge(() => {
         i.value = null, Ti(e["onClick:clear"], V);
       });
     }
@@ -5954,7 +5954,7 @@ const Yr = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       const k = V.target;
       if (i.value = k.value, (p = e.modelModifiers) != null && p.trim && ["text", "search", "password", "tel", "url"].includes(e.type)) {
         const x = [k.selectionStart, k.selectionEnd];
-        me(() => {
+        ge(() => {
           k.selectionStart = x[0], k.selectionEnd = x[1];
         });
       }
@@ -6218,7 +6218,7 @@ const es = A({
       ct(() => {
         var c;
         i.value = aa(l.vnode.el, !0), (c = i.value) == null || c.addEventListener("scroll", o);
-      }), ge(() => {
+      }), ye(() => {
         var c;
         (c = i.value) == null || c.removeEventListener("scroll", o);
       });
@@ -6774,7 +6774,7 @@ const rs = A({
       }
     });
     G(p, (P) => {
-      h ? me(() => h = !1) : o.value && !c.value && (c.value = !0), n("update:search", P);
+      h ? ge(() => h = !1) : o.value && !c.value && (c.value = !0), n("update:search", P);
     }), G(V, (P) => {
       var K;
       e.multiple || (p.value = ((K = P[0]) == null ? void 0 : K.title) ?? "");
@@ -6842,7 +6842,7 @@ const rs = A({
         }
         x.value = "";
       } else
-        V.value = [P], p.value = P.title, me(() => {
+        V.value = [P], p.value = P.title, ge(() => {
           c.value = !1, r.value = !0;
         });
     }
@@ -7047,7 +7047,10 @@ const rs = A({
       select: te
     }, i);
   }
-}), us = { key: 0 }, cs = { key: 0 }, ds = { class: "grey--text caption" }, fs = /* @__PURE__ */ ye("img", {
+}), us = { key: 0 }, cs = {
+  key: 0,
+  class: "combobox-prepend"
+}, ds = { style: { color: "grey", "font-size": "small" } }, fs = /* @__PURE__ */ me("img", {
   src: Gl,
   alt: "delete",
   height: "20"
@@ -7057,7 +7060,7 @@ function vs(e, t, n, l, a, i) {
     class: "rule-hover",
     style: _i(n.id === 0 ? "margin-top: 20px" : "margin-top: 0px")
   }, [
-    ye("div", null, [
+    me("div", null, [
       u($n, {
         style: { width: "300px" },
         label: "field",
@@ -7071,7 +7074,7 @@ function vs(e, t, n, l, a, i) {
         "onUpdate:modelValue": t[0] || (t[0] = (o) => n.rule.query.operand = o)
       }, null, 8, ["items", "modelValue"])
     ]),
-    ye("div", null, [
+    me("div", null, [
       u($n, {
         style: { width: "200px" },
         label: "operator",
@@ -7113,13 +7116,15 @@ function vs(e, t, n, l, a, i) {
           var o;
           return [
             ((o = i.value) == null ? void 0 : o.length) > 1 ? (ue(), we("div", cs, [
-              u(ln, { small: "" }, {
-                default: Me(() => [
-                  ye("span", null, gn(i.value[0]), 1)
-                ]),
-                _: 1
-              }),
-              ye("span", ds, "(+" + gn(i.value.length - 1) + " others)", 1)
+              me("div", null, [
+                u(ln, { small: "" }, {
+                  default: Me(() => [
+                    me("span", null, gn(i.value[0]), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              me("span", ds, "(+" + gn(i.value.length - 1) + " others)", 1)
             ])) : (ue(), Ht(ln, { key: 1 }, {
               default: Me(() => [
                 bt(gn(i.value[0] ?? ""), 1)
@@ -7132,7 +7137,7 @@ function vs(e, t, n, l, a, i) {
         _: 1
       }, 8, ["items", "modelValue"])) : at("", !0)
     ])),
-    ye("div", null, [
+    me("div", null, [
       u(re, {
         onClick: t[4] || (t[4] = (o) => i.removeRule())
       }, {
@@ -7433,7 +7438,7 @@ function xs(e, t) {
     var n;
     return (n = e.isActive) == null ? void 0 : n.value;
   }, (n) => {
-    e.isLink.value && n && t && me(() => {
+    e.isLink.value && n && t && ge(() => {
       t(!0);
     });
   }, {
@@ -7615,18 +7620,18 @@ const ws = A({
 }), Vs = { class: "group-wrap" }, ks = {
   key: 0,
   class: "group-header"
-}, _s = /* @__PURE__ */ ye("img", {
+}, _s = /* @__PURE__ */ me("img", {
   src: vi,
   alt: "add",
   height: "20"
-}, null, -1), Is = /* @__PURE__ */ ye("img", {
+}, null, -1), Is = /* @__PURE__ */ me("img", {
   src: vi,
   alt: "add",
   height: "20"
 }, null, -1), Ps = {
   key: 0,
   style: { "margin-left": "auto" }
-}, As = /* @__PURE__ */ ye("img", {
+}, As = /* @__PURE__ */ me("img", {
   src: Gl,
   alt: "delete",
   height: "20"
@@ -7635,7 +7640,7 @@ function Os(e, t, n, l, a, i) {
   const o = tl("query-builder-rule"), r = tl("query-builder-group", !0);
   return ue(), we("div", Vs, [
     e.group.query ? (ue(), we("div", ks, [
-      ye("div", null, [
+      me("div", null, [
         u(Nl, {
           class: "mr-2",
           onClick: e.addGroup
@@ -7647,7 +7652,7 @@ function Os(e, t, n, l, a, i) {
           _: 1
         }, 8, ["onClick"])
       ]),
-      ye("div", null, [
+      me("div", null, [
         u(Nl, {
           class: "mr-2",
           onClick: e.addRule
@@ -7659,7 +7664,7 @@ function Os(e, t, n, l, a, i) {
           _: 1
         }, 8, ["onClick"])
       ]),
-      ye("div", null, [
+      me("div", null, [
         e.group.query.children.length > 1 ? (ue(), Ht($n, {
           key: 0,
           style: { "max-width": "200px" },
@@ -7682,7 +7687,7 @@ function Os(e, t, n, l, a, i) {
         }, 8, ["onClick"])
       ])) : at("", !0)
     ])) : at("", !0),
-    ye("div", null, [
+    me("div", null, [
       (ue(!0), we(J, null, nl(e.sortedRules, (s) => (ue(), we("div", Es, [
         u(o, {
           rule: s,

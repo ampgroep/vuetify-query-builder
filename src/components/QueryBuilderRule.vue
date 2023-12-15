@@ -55,11 +55,13 @@
         style="max-height: 100px; min-width: 250px"
       >
         <template v-slot:prepend-inner>
-          <div v-if="value?.length > 1">
-            <v-chip small>
-              <span>{{ value[0] }}</span>
-            </v-chip>
-            <span class="grey--text caption"
+          <div v-if="value?.length > 1" class="combobox-prepend">
+            <div>
+              <v-chip small>
+                <span>{{ value[0] }}</span>
+              </v-chip>
+            </div>
+            <span style="color: grey; font-size: small"
               >(+{{ value.length - 1 }} others)</span
             >
           </div>
@@ -188,5 +190,12 @@ export default {
   flex-grow: 1;
   margin-left: -40px;
   padding: 10px 20px 10px 40px;
+}
+
+.combobox-prepend {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+  margin: 4px 0 4px 0;
 }
 </style>
