@@ -9,7 +9,7 @@
     "filter",
     "query"
   ],
-  "version": "0.5.0",
+  "version": "0.6.0",
   "files": ["dist"],
   "repository": {
     "type": "git",
@@ -34,8 +34,8 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "vue": "^3.3.4",
-    "vuetify": "^3.3.23"
+    "vue": "^3.0.0",
+    "vuetify": "^3.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
