@@ -56,12 +56,12 @@
       >
         <template v-slot:selection="{ item, index }">
           <v-chip v-if="index < 2" small>
-                <span>{{ item.title }}</span>
+            <span>{{ item.title }}</span>
           </v-chip>
           <span v-if="index === 2" style="color: grey; font-size: small"
-              >(+{{ value.length - 2 }} others)</span
-          >        
-	</template>
+            >(+{{ value.length - 2 }} others)</span
+          >
+        </template>
       </v-combobox>
     </div>
 
@@ -133,7 +133,7 @@ export default {
         return value
       },
       set: function (value: Array<string | number> | string | number) {
-        this.rule.query.value = value
+        this.rule.query.value = JSON.stringify(value)
       }
     }
   },
