@@ -133,7 +133,10 @@ export default {
         return value
       },
       set: function (value: Array<string | number> | string | number) {
-        this.rule.query.value = JSON.stringify(value)
+        if (typeof value === 'object') {
+          value = JSON.stringify(value)
+        }
+        this.rule.query.value = value
       }
     }
   },

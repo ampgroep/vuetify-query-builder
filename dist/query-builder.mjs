@@ -40,7 +40,7 @@ const Ii = {
         return e;
       },
       set: function(e) {
-        this.rule.query.value = JSON.stringify(e);
+        typeof e == "object" && (e = JSON.stringify(e)), this.rule.query.value = e;
       }
     }
   },
