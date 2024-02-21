@@ -54,20 +54,14 @@
         hide-details
         style="max-height: 100px; min-width: 250px"
       >
-        <template v-slot:prepend-inner>
-          <div v-if="value?.length > 1" class="combobox-prepend">
-            <div>
-              <v-chip small>
-                <span>{{ value[0] }}</span>
-              </v-chip>
-            </div>
-            <span style="color: grey; font-size: small"
-              >(+{{ value.length - 1 }} others)</span
-            >
-          </div>
-          <v-chip v-else>{{ value[0] ?? '' }}</v-chip>
-        </template>
-        <template v-slot:selection></template>
+        <template v-slot:selection="{ item, index }">
+          <v-chip v-if="index < 2" small>
+                <span>{{ item.title }}</span>
+          </v-chip>
+          <span v-if="index === 2" style="color: grey; font-size: small"
+              >(+{{ value.length - 2 }} others)</span
+          >        
+	</template>
       </v-combobox>
     </div>
 
