@@ -2,6 +2,7 @@
 import Query from '@/models/Query.ts'
 import QueryBuilder from './components/QueryBuilder.vue'
 import { ref } from 'vue'
+import { Operator } from '@/types.ts'
 
 const filter = ref({
   logicalOperator: 'AND',
@@ -142,6 +143,15 @@ let filter_fields: Array<string> = [
   'satusraw',
   'coldchain',
   'ambient'
+]
+
+let operators: Array<Operator> = [
+  { value: 'eq', text: '=', type: 'string' },
+  { value: 'ne', text: '!=', type: 'string' },
+  { value: 'gt', text: '>', type: 'string' },
+  { value: 'lt', text: '<', type: 'string' },
+  { value: 'gte', text: '>=', type: 'string' },
+  { value: 'lte', text: '<=', type: 'string' }
 ]
 </script>
 

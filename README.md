@@ -7,7 +7,7 @@ and using inside a vue component:
 ```vue
 <template>
   ...
-  <query-builder v-model="filter" :filter-fields="filter_fields" :color="color">
+  <query-builder v-model="filter" :filter-fields="filter_fields" :color="color" :operators='operators'>
   </query-builder>
   ...
 </template>
@@ -23,7 +23,11 @@ Options API:
            filter: {},
            filter_fields: ['id', 'name', 'date', 'gender'],
            // By default, this package will try to use your projects primary color  
-           color: 'royalblue'
+           color: 'royalblue',
+           operators: [
+              { value: 'eq', text: '=', type: 'string' },
+              { value: 'ne', text: '!=', type: 'string' }
+            ]
          }
      }
   }
@@ -40,14 +44,39 @@ Composition API:
 </script>
 ```
 ## Expected parameters:
-```ts
 
+```ts
 class QueryBuilder {
-    modelValue: {} | Query
-    filterFields: Array<string>
-    color: String
+  modelValue: {} | Query
+  filterFields: Array<string>
+  color: String
+  operators: Array<Operator>
 }
 ```
+### Operator:
+```ts
+type Operator = { value: String; text: string; type: String }
+// default operators: 
+const defaultOperators: Array<Operator> = [
+  { value: 'eq', text: '=', type: 'string' },
+  { value: 'ne', text: '!=', type: 'string' },
+  { value: 'gt', text: '>', type: 'string' },
+  { value: 'lt', text: '<', type: 'string' },
+  { value: 'gte', text: '>=', type: 'string' },
+  { value: 'lte', text: '<=', type: 'string' },
+  { value: 'regexp', text: 'regexp', type: 'string' },
+  { value: 'not regexp', text: 'not regexp', type: 'string' },
+  { value: 'like', text: 'like', type: 'string' },
+  { value: 'not like', text: 'not like', type: 'string' },
+  { value: 'exists', text: 'exists', type: 'none' },
+  { value: 'not exists', text: 'not exists', type: 'none' },
+  { value: 'is null', text: 'is null', type: 'none' },
+  { value: 'not null', text: 'not null', type: 'none' },
+  { value: 'in', text: 'in', type: 'array' },
+  { value: 'not in', text: 'not in', type: 'array' }
+]
+```
+
 ### 'modelValue' parameter:
 ```ts
 

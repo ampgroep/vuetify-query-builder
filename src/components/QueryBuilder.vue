@@ -8,6 +8,7 @@
         :removable="false"
         @remove-group="removeGroup"
         :color="color"
+        :operators="operators"
       >
       </query-builder-group>
     </div>
@@ -20,6 +21,8 @@ import Query from '@/models/Query'
 import { computed, onMounted } from 'vue'
 import Child from '@/models/Child.ts'
 import { PropType } from 'vue'
+import { defaultOperators } from '@/defaults.ts'
+import { Operator } from '@/types.ts'
 
 const props = defineProps({
   filterFields: {
@@ -29,6 +32,11 @@ const props = defineProps({
   modelValue: { type: Object as PropType<Query>, required: true },
   color: {
     type: String
+  },
+  operators: {
+    type: Object as PropType<Array<Operator>>,
+    required: false,
+    default: defaultOperators
   }
 })
 

@@ -1,6 +1,7 @@
-import Query from '../models/Query';
+import { default as Query } from '../models/Query';
 import { PropType } from 'vue';
-declare const _default: import("vue").DefineComponent<{
+import { Operator } from '../types.ts';
+declare const _default: import('vue').DefineComponent<{
     filterFields: {
         type: {
             (arrayLength: number): string[];
@@ -10,10 +11,12 @@ declare const _default: import("vue").DefineComponent<{
             isArray(arg: any): arg is any[];
             readonly prototype: any[];
             from<T>(arrayLike: ArrayLike<T>): T[];
-            from<T_1, U>(arrayLike: ArrayLike<T_1>, mapfn: (v: T_1, k: number) => U, thisArg?: any): U[];
-            from<T_2>(iterable: Iterable<T_2> | ArrayLike<T_2>): T_2[];
-            from<T_3, U_1>(iterable: Iterable<T_3> | ArrayLike<T_3>, mapfn: (v: T_3, k: number) => U_1, thisArg?: any): U_1[];
-            of<T_4>(...items: T_4[]): T_4[];
+            from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+            from<T>(iterable: Iterable<T> | ArrayLike<T>): T[];
+            from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+            of<T>(...items: T[]): T[];
+            fromAsync<T>(iterableOrArrayLike: AsyncIterable<T> | Iterable<T | PromiseLike<T>> | ArrayLike<T | PromiseLike<T>>): Promise<T[]>;
+            fromAsync<T, U>(iterableOrArrayLike: AsyncIterable<T> | Iterable<T> | ArrayLike<T>, mapFn: (value: Awaited<T>) => U, thisArg?: any): Promise<Awaited<U>[]>;
             readonly [Symbol.species]: ArrayConstructor;
         };
         required: true;
@@ -25,9 +28,14 @@ declare const _default: import("vue").DefineComponent<{
     color: {
         type: StringConstructor;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    operators: {
+        type: PropType<Array<Operator>>;
+        required: false;
+        default: Operator[];
+    };
+}, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "update:modelValue": (...args: any[]) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     filterFields: {
         type: {
             (arrayLength: number): string[];
@@ -37,10 +45,12 @@ declare const _default: import("vue").DefineComponent<{
             isArray(arg: any): arg is any[];
             readonly prototype: any[];
             from<T>(arrayLike: ArrayLike<T>): T[];
-            from<T_1, U>(arrayLike: ArrayLike<T_1>, mapfn: (v: T_1, k: number) => U, thisArg?: any): U[];
-            from<T_2>(iterable: Iterable<T_2> | ArrayLike<T_2>): T_2[];
-            from<T_3, U_1>(iterable: Iterable<T_3> | ArrayLike<T_3>, mapfn: (v: T_3, k: number) => U_1, thisArg?: any): U_1[];
-            of<T_4>(...items: T_4[]): T_4[];
+            from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+            from<T>(iterable: Iterable<T> | ArrayLike<T>): T[];
+            from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+            of<T>(...items: T[]): T[];
+            fromAsync<T>(iterableOrArrayLike: AsyncIterable<T> | Iterable<T | PromiseLike<T>> | ArrayLike<T | PromiseLike<T>>): Promise<T[]>;
+            fromAsync<T, U>(iterableOrArrayLike: AsyncIterable<T> | Iterable<T> | ArrayLike<T>, mapFn: (value: Awaited<T>) => U, thisArg?: any): Promise<Awaited<U>[]>;
             readonly [Symbol.species]: ArrayConstructor;
         };
         required: true;
@@ -51,8 +61,15 @@ declare const _default: import("vue").DefineComponent<{
     };
     color: {
         type: StringConstructor;
+    };
+    operators: {
+        type: PropType<Array<Operator>>;
+        required: false;
+        default: Operator[];
     };
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-}, {}, {}>;
+}, {
+    operators: Operator[];
+}, {}>;
 export default _default;

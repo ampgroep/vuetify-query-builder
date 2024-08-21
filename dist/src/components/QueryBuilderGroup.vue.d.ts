@@ -1,8 +1,9 @@
-import Query from '../models/Query.ts';
-import Child from '../models/Child.ts';
-import QueryRule from '../models/QueryRule.ts';
-import { Children } from '../types';
-declare const _default: import("vue").DefineComponent<{
+import { default as Query } from '../models/Query.ts';
+import { default as Child } from '../models/Child.ts';
+import { default as QueryRule } from '../models/QueryRule.ts';
+import { Children, Operator } from '../types';
+import { PropType } from 'vue';
+declare const _default: import('vue').DefineComponent<{
     group: {
         type: {
             new (query: Query, type?: import('../types').QueryElementType, index?: number): Child<Query>;
@@ -23,6 +24,10 @@ declare const _default: import("vue").DefineComponent<{
     };
     color: {
         type: StringConstructor;
+    };
+    operators: {
+        type: PropType<Array<Operator>>;
+        required: true;
     };
 }, unknown, unknown, {
     sortedRules(): Children<QueryRule>;
@@ -33,7 +38,7 @@ declare const _default: import("vue").DefineComponent<{
     removeGroup(): void;
     removeNestedGroup(index: number): void;
     removeNestedRule(index: number): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     group: {
         type: {
             new (query: Query, type?: import('../types').QueryElementType, index?: number): Child<Query>;
@@ -54,6 +59,10 @@ declare const _default: import("vue").DefineComponent<{
     };
     color: {
         type: StringConstructor;
+    };
+    operators: {
+        type: PropType<Array<Operator>>;
+        required: true;
     };
 }>>, {
     removable: boolean;

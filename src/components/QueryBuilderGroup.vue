@@ -37,6 +37,7 @@
           :id="rule.originalIndex ?? 0"
           :fields="fields"
           @remove-rule="removeNestedRule"
+          :operators="operators"
         >
         </query-builder-rule>
       </div>
@@ -46,6 +47,7 @@
           :id="group.originalIndex ?? 0"
           :fields="fields"
           @remove-group="removeNestedGroup"
+          :operators="operators"
         >
         </query-builder-group>
       </div>
@@ -58,8 +60,8 @@ import QueryBuilderRule from './QueryBuilderRule.vue'
 import Query from '../models/Query.ts'
 import Child from '../models/Child.ts'
 import QueryRule from '@/models/QueryRule.ts'
-import { Children } from '@/types'
-import { defineComponent } from 'vue'
+import { Children, Operator } from '@/types'
+import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   name: 'QueryBuilderGroup',
@@ -85,6 +87,10 @@ export default defineComponent({
     },
     color: {
       type: String
+    },
+    operators: {
+      type: Object as PropType<Array<Operator>>,
+      required: true
     }
   },
   computed: {
