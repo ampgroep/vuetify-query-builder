@@ -4,12 +4,15 @@
   "keywords": [
     "vue",
     "vuetify",
+    "vuetify3",
     "vue3",
+    "query builder",
     "query-builder",
     "filter",
-    "query"
+    "query",
+    "builder"
   ],
-  "version": "0.9.0",
+  "version": "1.0.0",
   "files": [
     "dist"
   ],
