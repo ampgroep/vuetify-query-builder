@@ -19,20 +19,23 @@ declare const _default: import('vue').DefineComponent<{
         type: PropType<Array<Operator>>;
         required: true;
     };
-}, unknown, unknown, {
-    operator: {
-        get: () => Operator;
-        set: (value: Operator) => void;
-    };
+}, unknown, {
+    operator: Operator;
+}, {
     value: {
         get: () => any;
         set: (value: Array<string | number> | string | number) => void;
     };
-}, {
-    removeRule(): void;
     hideValue(): boolean;
     showTextField(): boolean;
     showCombobox(): boolean;
+    showRegexpField(): boolean;
+    showPlaceHolder(): boolean;
+}, {
+    removeRule(): void;
+    validRegexp(value: string): boolean;
+    validRegexpInput(value: string): true | "Invalid regexp format";
+    getOperator(): Operator;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     rule: {
         type: PropType<Child<QueryRule>>;

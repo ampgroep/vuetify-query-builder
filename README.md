@@ -73,7 +73,11 @@ const defaultOperators: Array<Operator> = [
   { value: 'is null', text: 'is null', type: 'none' },
   { value: 'not null', text: 'not null', type: 'none' },
   { value: 'in', text: 'in', type: 'array' },
-  { value: 'not in', text: 'not in', type: 'array' }
+  { value: 'not in', text: 'not in', type: 'array' },
+  // support of placeholder values, in case of the actual value being processed server side
+  // Example: a preconfigure date
+  { value: 'in', text: 'in placeholder', type: 'placeholder' },
+  { value: 'not in', text: 'not in placeholder', type: 'placeholder' }
 ]
 ```
 
@@ -89,12 +93,87 @@ interface QueryRule {
     rule?: string
     operator: Operator['value']
     operand: string
-    value: Array<string | number> | string | number | null
+    value: Array<string | number> | string | number | null 
 }
 
 ```
+### Filter object example 
+```ts
+const filter = ref({
+  logicalOperator: 'AND',
+  children: [
+    {
+      type: 'query-builder-group',
+      query: {
+        logicalOperator: 'OR',
+        children: [
+          {
+            type: 'query-builder-rule',
+            query: {
+              rule: 'type',
+              operator: 'IN',
+              operand: 'type',
+              value: [1, 2, 3, 4, 5]
+            },
+            originalIndex: 0
+          },
+          {
+            type: 'query-builder-rule',
+            query: {
+              rule: 'category',
+              operator: 'IN',
+              operand: 'category',
+              value: [1, 2, 3]
+            },
+            originalIndex: 1
+          },
+          {
+            type: 'query-builder-group',
+            query: {
+              logicalOperator: 'AND',
+              children: [
+                {
+                  type: 'query-builder-rule',
+                  query: {
+                    rule: '',
+                    operator: 'gte',
+                    operand: 'customerID',
+                    value: '12400'
+                  },
+                  originalIndex: 0
+                },
+                {
+                  type: 'query-builder-rule',
+                  query: {
+                    rule: '',
+                    operator: 'in',
+                    operand: 'deliveryDate',
+                    value: 'configured_delivery_date'
+                  },
+                  originalIndex: 1
+                }
+              ]
+            },
+            originalIndex: 2
+          }
+        ]
+      }
+    },
+    {
+      type: 'query-builder-rule',
+      query: {
+        rule: 'status',
+        operator: 'IN',
+        operand: 'status',
+        value: ['created', 'processing', 'done']
+      }
+    }
+  ]
+} as Query)
+
+```
+Additionally, the package will accept a string with valid json as a value and will try to parse it.
 
 Example:
-
 ![img.png](/example.png)
 
