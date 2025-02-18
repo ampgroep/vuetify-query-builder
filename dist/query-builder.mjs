@@ -31,13 +31,15 @@ const Ui = {
     value: {
       get: function() {
         let e = this.rule.query.value;
-        if (this.operator.type === "array" && typeof e != "object")
-          try {
-            typeof e == "string" ? e = [...new Set(JSON.parse(e))] : e = [e];
-          } catch {
-            e = [];
-          }
-        else if (this.operator.type === "regexp")
+        if (this.operator.type === "array") {
+          if (typeof e != "object")
+            try {
+              typeof e == "string" ? e = [...new Set(JSON.parse(e))] : e = [e];
+            } catch {
+              e = [];
+            }
+          typeof e == "object" && (e == null || e.sort());
+        } else if (this.operator.type === "regexp")
           return e ? e.toString().replace(/^\/|\/g$/g, "") : "";
         return e;
       },

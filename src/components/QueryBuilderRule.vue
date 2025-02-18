@@ -130,16 +130,21 @@ export default {
     value: {
       get: function (): any {
         let value = this.rule.query.value
-        if (this.operator.type === 'array' && typeof value !== 'object') {
-          try {
-            if (typeof value === 'string') {
-              // @ts-ignore Ensure unique values
-              value = [...new Set(JSON.parse(value))]
-            } else {
-              value = [value]
+        if (this.operator.type === 'array') {
+          if (typeof value !== 'object') {
+            try {
+              if (typeof value === 'string') {
+                // @ts-ignore Ensure unique values
+                value = [...new Set(JSON.parse(value))]
+              } else {
+                value = [value]
+              }
+            } catch (e) {
+              value = []
             }
-          } catch (e) {
-            value = []
+          }
+          if (typeof value === 'object') {
+            value?.sort()
           }
         } else if (this.operator.type === 'regexp') {
           return value ? value.toString().replace(/^\/|\/g$/g, '') : ''
